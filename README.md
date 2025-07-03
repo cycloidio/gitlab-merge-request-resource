@@ -94,3 +94,13 @@ jobs:
           Add new comment.
           $FILE_CONTENT
 ```
+
+## Build
+
+```bash
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o check cli/check/cmd/main.go
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o in cli/in/cmd/main.go
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o out cli/out/cmd/main.go
+
+docker build -t cycloid/concourse-gitlab-merge-request-resource:develop .
+```
